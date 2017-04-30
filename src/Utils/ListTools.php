@@ -5,10 +5,10 @@
  * Diatem
  */
 
-namespace Jin\Utils;
+namespace Jin2\Utils;
 
-use Jin\Utils\StringTools;
-use Jin\Utils\ArrayTools;
+use Jin2\Utils\StringTools;
+use Jin2\Utils\ArrayTools;
 
 /**
  * Gestion de liste de valeurs (inspiré des méthodes de list de coldfusion)
@@ -57,7 +57,7 @@ class ListTools
    */
   public static function find($list, $value, $delimiter = ',')
   {
-    return ArrayTools::find(self::toArray($list, $delimiter), $value);
+    return ArrayTools::find(static::toArray($list, $delimiter), $value);
   }
 
   /**
@@ -70,7 +70,7 @@ class ListTools
    */
   public static function findNoCase($list, $value, $delimiter = ',')
   {
-    return ArrayTools::findNoCase(self::toArray($list, $delimiter), $value);
+    return ArrayTools::findNoCase(static::toArray($list, $delimiter), $value);
   }
 
   /**
@@ -83,7 +83,7 @@ class ListTools
    */
   public static function contains($list, $value, $delimiter = ',')
   {
-    return is_numeric(ArrayTools::find(self::toArray($list, $delimiter), $value));
+    return is_numeric(ArrayTools::find(static::toArray($list, $delimiter), $value));
   }
 
   /**
@@ -96,7 +96,7 @@ class ListTools
    */
   public static function containsNoCase($list, $value, $delimiter = ',')
   {
-    return is_numeric(ArrayTools::findNoCase(self::toArray($list, $delimiter), $value));
+    return is_numeric(ArrayTools::findNoCase(static::toArray($list, $delimiter), $value));
   }
 
   /**
@@ -109,7 +109,7 @@ class ListTools
    */
   public static function deleteAt($list, $index, $delimiter = ',')
   {
-    return ArrayTools::deleteAt(self::toArray($list, $delimiter), $index);
+    return ArrayTools::deleteAt(static::toArray($list, $delimiter), $index);
   }
 
   /**
@@ -121,7 +121,7 @@ class ListTools
    */
   public static function first($list, $delimiter = ',')
   {
-    $array = self::toArray($list, $delimiter);
+    $array = static::toArray($list, $delimiter);
     return $array[0];
   }
 
@@ -134,7 +134,7 @@ class ListTools
    */
   public static function last($list, $delimiter = ',')
   {
-    $array = self::toArray($list, $delimiter);
+    $array = static::toArray($list, $delimiter);
     if (isset($array[count($array) - 1])) {
       return $array[count($array) - 1];
     }
@@ -151,7 +151,7 @@ class ListTools
    */
   public static function ListGetAt($list, $index, $delimiter = ',')
   {
-    $array = self::toArray($list, $delimiter);
+    $array = static::toArray($list, $delimiter);
     return $array[$index];
   }
 
@@ -166,7 +166,7 @@ class ListTools
    */
   public static function ListInsertAt($list, $index, $value, $delimiter = ',')
   {
-    $array = self::toArray($list, $delimiter);
+    $array = static::toArray($list, $delimiter);
     $array = ArrayTools::insertAt($array, $index, $value);
     return ArrayTools::toList($array, $delimiter);
   }
@@ -180,7 +180,7 @@ class ListTools
    */
   public static function len($list, $delimiter = ',')
   {
-    $array = self::toArray($list, $delimiter);
+    $array = static::toArray($list, $delimiter);
     return count($array);
   }
 
@@ -208,7 +208,7 @@ class ListTools
    */
   public static function setAt($list, $index, $value, $delimiter = ',')
   {
-    $array = self::toArray($list, $delimiter);
+    $array = static::toArray($list, $delimiter);
     $array[$index] = $value;
     return ArrayTools::toList($array, $delimiter);
   }

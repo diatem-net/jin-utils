@@ -5,7 +5,7 @@
 * Diatem
 */
 
-namespace Jin\Utils;
+namespace Jin2\Utils;
 
 /**
  * Boite à outils pour les opérations temporelles
@@ -84,7 +84,7 @@ class TimeTools
    */
   public static function toHTML5Format($date = null, $withHour = false)
   {
-    return self::toAmericanFormat($date, $withHour);
+    return static::toAmericanFormat($date, $withHour);
   }
 
   /**
@@ -149,7 +149,7 @@ class TimeTools
   public static function isBetween($date, $from, $to, $strict = false)
   {
     $operator = $strict ? '<' : '<=';
-    return self::compare($from, $date, $operator) && self::compare($date, $to, $operator);
+    return static::compare($from, $date, $operator) && static::compare($date, $to, $operator);
   }
 
   /**

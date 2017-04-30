@@ -5,9 +5,9 @@
  * Diatem
  */
 
-namespace Jin\Utils;
+namespace Jin2\Utils;
 
-use Jin\Utils\StringTools;
+use Jin2\Utils\StringTools;
 
 /**
  * Boite à outil pour les tableaux
@@ -196,7 +196,7 @@ class ArrayTools
    */
   public static function prepend($array, $value)
   {
-    return self::insertAt($array, 0, $value);
+    return static::insertAt($array, 0, $value);
   }
 
   /**
@@ -377,7 +377,7 @@ class ArrayTools
   {
     foreach ($array as &$value) {
       if (is_array($value)) {
-        $value = self::filterRecursive($value);
+        $value = static::filterRecursive($value);
       }
     }
     return array_filter($array);

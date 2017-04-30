@@ -5,9 +5,9 @@
  * Diatem
  */
 
-namespace Jin\Utils;
+namespace Jin2\Utils;
 
-use Jin\Utils\StringTools;
+use Jin2\Utils\StringTools;
 
 /**
  * Boite à outil pour les numériques

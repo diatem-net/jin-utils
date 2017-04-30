@@ -5,7 +5,7 @@
 * Diatem
 */
 
-namespace Jin\Utils;
+namespace Jin2\Utils;
 
 /**
  * Boite à outils pour les couleurs
@@ -196,7 +196,7 @@ class ColorTools
       $color = strtolower($color);
       // Check if it's a X11 color
       if (array_key_exists($color, self::$x11) !== false) {
-        return self::toHex(self::$x11[$color]);
+        return static::toHex(self::$x11[$color]);
       }
       // Check if it's an 3-hexadecimal color
       if (preg_match('/^#[\da-f]{3}$/i', $color)) {
@@ -217,7 +217,7 @@ class ColorTools
    */
   public static function toRGB($color)
   {
-    $color = self::toRGBA($color);
+    $color = static::toRGBA($color);
     unset($color['alpha']);
     return $color;
   }
@@ -296,7 +296,7 @@ class ColorTools
    */
   public static function toHTMLRGB($color)
   {
-    $color = self::toRGB($color);
+    $color = static::toRGB($color);
     return 'rgb('.$color['red'].', '.$color['green'].', '.$color['blue'].')';
   }
 
@@ -308,7 +308,7 @@ class ColorTools
    */
   public static function toHTMLRGBA($color)
   {
-    $color = self::toRGBA($color);
+    $color = static::toRGBA($color);
     return 'rgba('.$color['red'].', '.$color['green'].', '.$color['blue'].', '.$color['alpha'].')';
   }
 
@@ -362,7 +362,7 @@ class ColorTools
    */
   public static function visibleOver($color, $greyscale = false)
   {
-    $color = self::toRGBA($color);
+    $color = static::toRGBA($color);
     if ($greyscale) {
       $median = 255 - ($color['red'] + $color['green'] + $color['blue']) / 3;
       return array(

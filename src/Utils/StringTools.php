@@ -5,7 +5,7 @@
  * Diatem
  */
 
-namespace Jin\Utils;
+namespace Jin2\Utils;
 
 /**
  * Boite à outils pour les chaînes de caractères
@@ -37,7 +37,7 @@ class StringTools
   }
 
   /**
-   * Teste si la chaine contient une sous-châine spécifiée
+   * Teste si la chaine contient une sous-chaîne spécifiée
    *
    * @param  string  $string  Chaîne de caractères
    * @param  string  $search  Chaîne recherchée
@@ -46,7 +46,7 @@ class StringTools
    */
   public static function contains($string, $search, $noCase = false)
   {
-    return self::firstIndexOf($string, $search, $noCase) == -1;
+    return static::firstIndexOf($string, $search, $noCase) != -1;
   }
 
   /**
@@ -232,7 +232,7 @@ class StringTools
    */
   public static function replaceFirst($string, $search, $replacement, $noCase = false)
   {
-    $search = self::replaceAll($search, '/', '\/');
+    $search = static::replaceAll($search, '/', '\/');
     if ($noCase) {
       return preg_replace('/' . $search . '/i', $replacement, $string, 1);
     } else {
@@ -350,9 +350,9 @@ class StringTools
    */
   public static function wordWrap($string, $length, $cresure = '<br/>', $height = -1, $suffix = '')
   {
-    $string = self::removeHtmlTags($string);
+    $string = static::removeHtmlTags($string);
     $string = wordwrap($string, $length, $cresure);
-    $elements = self::explode($string, $cresure);
+    $elements = static::explode($string, $cresure);
     if (count($elements) + 1 > $height && $height != -1) {
       $string = '';
       for ($i = 0; $i <= $height; $i++) {
@@ -478,7 +478,7 @@ class StringTools
     $fileNameParts = explode('.', $fileName);
     $extension = array_pop($fileNameParts);
     $fileName = implode($fileNameParts);
-    return self::clean($fileName) .'.'. $extension;
+    return static::clean($fileName) .'.'. $extension;
   }
 
   /**
@@ -489,7 +489,7 @@ class StringTools
    */
   public static function clean($string)
   {
-    $string = self::removeHtmlTags($string);
+    $string = static::removeHtmlTags($string);
     setlocale(LC_CTYPE, 'fr_FR.UTF-8');
     $string = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $string);
     $string = str_replace(' ', '-', $string);
