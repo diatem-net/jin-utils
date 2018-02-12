@@ -2,7 +2,7 @@
     "name": "diatem-net/jin-utils",
     "description": "Utility classes to work on numbers, string, colors...",
     "type": "library",
-    "license": "GPLv3",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Loïc Gérard",
